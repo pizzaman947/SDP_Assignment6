@@ -19,5 +19,6 @@ public class Main {
 
         context.setStrategy(authThroughSecretQuestion);
         context.login(username2);
+        //
     }
 }
