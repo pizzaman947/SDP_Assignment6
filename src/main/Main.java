@@ -15,8 +15,5 @@ public class Main {
 
         context.setStrategy(new PayPalPayment());
         context.pay(secondAmount);
-
-
-
     }
 }
