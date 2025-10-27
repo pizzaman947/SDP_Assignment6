@@ -1,19 +1,18 @@
 package main;
 
-import context.PaymentContext;
-import strategy.CreditCardPayment;
-import strategy.PayPalPayment;
+import context.TwoFactorAuthContext;
+import strategy.AuthThroughSMS;
+import strategy.AuthThroughSecretQuestion;
 
 public class Main {
     public static void main(String[] args) {
-        float firstAmount = 100f;
-        float secondAmount = 150f;
+        String username = "Rakhat0612";
 
-        PaymentContext context = new PaymentContext();
-        context.setStrategy(new CreditCardPayment());
-        context.pay(firstAmount);
+        TwoFactorAuthContext context = new TwoFactorAuthContext();
+        context.setStrategy(new AuthThroughSMS());
+        context.login(username);
 
-        context.setStrategy(new PayPalPayment());
-        context.pay(secondAmount);
+        context.setStrategy(new AuthThroughSecretQuestion());
+        context.login(username);
     }
 }
